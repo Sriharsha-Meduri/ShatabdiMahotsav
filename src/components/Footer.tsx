@@ -57,11 +57,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={16} className="shrink-0" />
-                <span>0891-2844197</span>
+                <span>+91-9399962033, +91-9030303636</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={16} className="shrink-0" />
-                <span>enquiry@andhrauniversity.edu.in</span>
+                <span>aushatabdimahotsav@gmail.com</span>
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg text-gold mb-4">Shatabdi Mahotsav</h4>
             <p className="text-sm opacity-80 leading-relaxed">
-              April 18–20, 2026<br />
+              April 6-8, 2026<br />
               Andhra University Campus<br />
               Visakhapatnam
             </p>

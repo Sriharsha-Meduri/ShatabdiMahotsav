@@ -90,8 +90,8 @@ const Contact = () => {
               <div className="space-y-4">
                 {[
                   { icon: MapPin, text: "Andhra University, Visakhapatnam, Andhra Pradesh, India – 530003" },
-                  { icon: Phone, text: "0891-2844197, 2755993" },
-                  { icon: Mail, text: "enquiry@andhrauniversity.edu.in" },
+                  { icon: Phone, text: "+91-9399962033, +91-9030303636" },
+                  { icon: Mail, text: "aushatabdimahotsav@gmail.com" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <item.icon className="text-gold mt-1 shrink-0" size={18} />

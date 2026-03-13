@@ -91,7 +91,8 @@ Dean, International Affairs`,
     convenor: "Prof. Asha Emmanuel Raju",
     venue: "Engineering College Grounds",
     description: "Spectacular multi-day cultural celebration featuring renowned artists and AU talent.",
-    registrationLink: "/registration"
+    registrationLink: "/registration",
+    brochureLink: "/downloads/b4.pdf"
   },
   {
     id: 28,
@@ -104,7 +105,7 @@ Dean, International Affairs`,
     time: "Daily sessions during Apr 6-10, 2026",
     registrationLink: "https://forms.gle/GzJMBErd4dT2L6WCA",
     brochureLink: "/downloads/Koha brochure Latest.pdf",
-    about: "Chief Patron: Prof. G.P. Raja Sekhar (Honorable Vice-Chancellor). Workshop Director: Prof. C. Sasikala. Registration Fee: Rs. 200. Payment: Dept. of Library & Information Science, A/C 10428605474, IFSC SBIN0000772 (SBI South Campus). Contact: dhanuvr@gmail.com | +91 9182827373, 9440316454. Resource Persons: Dr. Shankar Reddy Kolle, Dr. C. Mallikarjuna, Dr. Vinod Kumar Mishra, Dr. S. Padma Shree, Dr. O. Seshaiah, and Prasad Vangapandu. Note: Preference will be given to candidates carrying their own laptops."
+    // about: "Chief Patron: Prof. G.P. Raja Sekhar (Honorable Vice-Chancellor). Workshop Director: Prof. C. Sasikala. Registration Fee: Rs. 200. Payment: Dept. of Library & Information Science, A/C 10428605474, IFSC SBIN0000772 (SBI South Campus). Contact: dhanuvr@gmail.com | +91 9182827373, 9440316454. Resource Persons: Dr. Shankar Reddy Kolle, Dr. C. Mallikarjuna, Dr. Vinod Kumar Mishra, Dr. S. Padma Shree, Dr. O. Seshaiah, and Prasad Vangapandu. Note: Preference will be given to candidates carrying their own laptops."
   },
   {
     id: 20,
