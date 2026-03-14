@@ -387,7 +387,7 @@ const ballPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
       {/* Upcoming Events Preview */}
       <section className="py-20 bg-cream">
         <div className="container mx-auto px-4">
-          <SectionTitle title="Centenary Celebration Events" subtitle="April 18–20, 2026 – Three Days of Grand Celebrations" />
+          <SectionTitle title="Centenary Celebration Events" subtitle="April 6-8, 2026 – Three Days of Grand Celebrations" />
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {upcomingEvents.map((evt, i) => (
               <motion.div
