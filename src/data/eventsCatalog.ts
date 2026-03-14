@@ -42,7 +42,9 @@ export const EVENTS: EventData[] = [
     title: "IIC Cluster Meet",
     convenor: "Prof. G.M.J. Raju",
     venue: "Convention Centre",
-    description: "Focusing on innovation and start-up culture across local university clusters."
+    description: "Focusing on innovation and start-up culture across local university clusters.\nA networking conclave connecting students with startups, industry leaders, and investors.\nExplore internships with 16 startups and gain insights from leaders like Padma Shri Dr. BVR Mohan Reddy.",
+    registrationLink: "https://forms.gle/oqwHvqFseJGGD8fU7",
+    brochureLink: "/downloads/IIC_cluster_event.jpeg"
   },
   {
     id: 15,

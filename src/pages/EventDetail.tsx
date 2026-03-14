@@ -77,7 +77,7 @@ const EventDetail = () => {
                 <div className="prose prose-lg max-w-none text-gray-600 font-body space-y-6 lg:space-y-8 leading-relaxed">
                   <p>
                     As Andhra University celebrates its historic <strong>Centenary Milestone</strong>, we are proud to present {event.title}. 
-                    This event is designed to foster a spirit of academic inquiry and cultural celebration among our students, faculty, and the global alumni network.
+                    This event is part of the Centenary Celebrations, bringing together students, faculty, and alumni to exchange ideas, showcase talent, and celebrate the vibrant academic and cultural spirit of our university.
                   </p>
                   <p>
                     {event.about || event.description}
@@ -179,7 +179,7 @@ const EventDetail = () => {
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-3 w-full py-4 border-2 border-gold text-gold font-black rounded-2xl hover:bg-gold hover:text-navy transition-all text-xs sm:text-sm uppercase tracking-widest"
                     >
-                      <Download size={20} /> DOWNLOAD BROCHURE
+                      <Download size={20} /> DOWNLOAD DETAILS
                     </a>
                   ) : (
                     <button type="button" className="flex items-center justify-center gap-3 w-full py-4 border-2 border-gold text-gold font-black rounded-2xl hover:bg-gold hover:text-navy transition-all text-xs sm:text-sm uppercase tracking-widest opacity-80 cursor-not-allowed">
