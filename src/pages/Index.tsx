@@ -234,7 +234,7 @@ const ballPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
             Andhra University has played a major role in shaping education, research,
             and innovation in South India for a century.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -243,10 +243,10 @@ const ballPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="text-center p-6 rounded-xl border border-gold/20 bg-navy-light/50 flex flex-col items-center justify-center min-h-[160px]"
+                className="text-center p-6 md:p-8 rounded-xl border border-gold/20 bg-navy-light/50 flex flex-col items-center justify-center min-h-[160px]"
               >
                 <stat.icon className="mb-3 text-gold shrink-0" size={28} />
-                <p className="font-display text-xl sm:text-2xl text-gold font-bold break-words w-full px-2">{stat.value}</p>
+                <p className="font-display text-xl sm:text-2xl text-gold font-bold whitespace-nowrap w-full px-2">{stat.value}</p>
                 <p className="text-gold-light/60 text-xs font-body mt-1 uppercase tracking-wider">{stat.label}</p>
               </motion.div>
             ))}
