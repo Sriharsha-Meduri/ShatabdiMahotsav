@@ -310,7 +310,7 @@ const ballPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
                     {event.year}
                   </h3>
 
-                  <p className="text-base md:text-lg mt-2 text-gray-600 font-body">
+                  <p className={`text-base md:text-lg mt-2 font-body ${event.highlight ? "text-white" : "text-gray-600"}`}>
                     {event.event}
                   </p>
 
