@@ -33,6 +33,7 @@ export const EVENTS: EventData[] = [
     convenor: "Prof. K. Saraswathi Vidyardhi, HoD Music",
     venue: "A.U. Convention Centre",
     description: "An evening of serene classical melodies celebrating our cultural heritage and musical legacy.",
+    time: "4:00 PM onwards",
     brochureLink: "/downloads/17 Mar - Classical Music Concert - Poster.pdf"
   },
   {
@@ -42,6 +43,7 @@ export const EVENTS: EventData[] = [
     title: "IIC Cluster Meet",
     convenor: "Prof. G.M.J. Raju",
     venue: "Convention Centre",
+    time: "9:00 AM to 5:00 PM",
     description: "Focusing on innovation and start-up culture across local university clusters.\nA networking conclave connecting students with startups, industry leaders, and investors.\nExplore internships with 16 startups and gain insights from leaders like Padma Shri Dr. BVR Mohan Reddy.",
     registrationLink: "https://forms.gle/oqwHvqFseJGGD8fU7",
     brochureLink: "/downloads/IIC_cluster_event.jpeg"

@@ -1,7 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Search, MapPin, User, Calendar, ExternalLink
+  Search, MapPin, User, ExternalLink, Clock
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import SectionTitle from "@/components/SectionTitle";
@@ -23,7 +23,141 @@ const FloatingDots = () => (
   </div>
 );
 
-const EventCard = ({ event }: { event: EventData }) => {
+const MONTH_MAP: Record<string, string> = {
+  jan: "01",
+  feb: "02",
+  mar: "03",
+  apr: "04",
+  may: "05",
+  jun: "06",
+  jul: "07",
+  aug: "08",
+  sep: "09",
+  oct: "10",
+  nov: "11",
+  dec: "12",
+};
+
+type TimeParts = { hour: number; minute: number; second: number; ms: number };
+
+const parseTimeToken = (token: string): TimeParts | null => {
+  const match = token.match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
+  if (!match) {
+    return null;
+  }
+
+  let hour = Number(match[1]) % 12;
+  const minute = Number(match[2] || "0");
+  const period = match[3].toUpperCase();
+
+  if (period === "PM") {
+    hour += 12;
+  }
+
+  return { hour, minute, second: 0, ms: 0 };
+};
+
+const parseTimeWindow = (time?: string) => {
+  if (!time) {
+    return {
+      start: { hour: 0, minute: 0, second: 0, ms: 0 },
+      end: null as TimeParts | null,
+    };
+  }
+
+  const normalized = time
+    .replace(/onwards/gi, "")
+    .replace(/\s*-\s*/g, " to ")
+    .trim();
+
+  const matches = normalized.match(/\d{1,2}(?::\d{2})?\s*(?:AM|PM)/gi) || [];
+  if (matches.length === 0) {
+    return {
+      start: { hour: 0, minute: 0, second: 0, ms: 0 },
+      end: null as TimeParts | null,
+    };
+  }
+
+  const start = parseTimeToken(matches[0]) || { hour: 0, minute: 0, second: 0, ms: 0 };
+  const end = matches[1] ? parseTimeToken(matches[1]) : null;
+
+  return { start, end };
+};
+
+const parseEventDateWindow = (event: EventData) => {
+  const cleaned = event.date.replace(/\([^)]*\)/g, "").trim();
+  const yearFromMonth = Number(event.month.match(/\d{4}/)?.[0] || "2026");
+
+  const rangeMatch = cleaned.match(/^(\d{1,2})\s*[-–]\s*(\d{1,2})\s+([A-Za-z]+)(?:\s+(\d{4}))?$/);
+  const singleMatch = cleaned.match(/^(\d{1,2})\s+([A-Za-z]+)(?:\s+(\d{4}))?$/);
+
+  const startDay = rangeMatch ? Number(rangeMatch[1]) : singleMatch ? Number(singleMatch[1]) : null;
+  const endDay = rangeMatch ? Number(rangeMatch[2]) : singleMatch ? Number(singleMatch[1]) : null;
+  const monthText = rangeMatch ? rangeMatch[3] : singleMatch ? singleMatch[2] : null;
+  const explicitYear = rangeMatch ? rangeMatch[4] : singleMatch ? singleMatch[3] : null;
+
+  if (!startDay || !endDay || !monthText) {
+    return null;
+  }
+
+  const month = MONTH_MAP[monthText.slice(0, 3).toLowerCase()];
+  if (!month) {
+    return null;
+  }
+
+  const year = Number(explicitYear || yearFromMonth);
+  const timeWindow = parseTimeWindow(event.time);
+  const startIso = `${year}-${month}-${String(startDay).padStart(2, "0")}T${String(timeWindow.start.hour).padStart(2, "0")}:${String(timeWindow.start.minute).padStart(2, "0")}:${String(timeWindow.start.second).padStart(2, "0")}+05:30`;
+
+  const endClock = timeWindow.end
+    ? `${String(timeWindow.end.hour).padStart(2, "0")}:${String(timeWindow.end.minute).padStart(2, "0")}:${String(timeWindow.end.second).padStart(2, "0")}`
+    : "23:59:59";
+  const endIso = `${year}-${month}-${String(endDay).padStart(2, "0")}T${endClock}.999+05:30`;
+  const start = new Date(startIso).getTime();
+  const end = new Date(endIso).getTime();
+
+  if (Number.isNaN(start) || Number.isNaN(end)) {
+    return null;
+  }
+
+  return { start, end };
+};
+
+const getCountdownParts = (targetTimestamp: number, nowTimestamp: number) => {
+  const diff = targetTimestamp - nowTimestamp;
+
+  if (diff <= 0) {
+    return null;
+  }
+
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+  };
+};
+
+const EventCard = ({ event, now }: { event: EventData; now: number }) => {
+  const eventWindow = useMemo(() => parseEventDateWindow(event), [event]);
+
+  const status = useMemo(() => {
+    if (!eventWindow || now < eventWindow.start) {
+      return "upcoming";
+    }
+
+    if (now <= eventWindow.end) {
+      return "started";
+    }
+
+    return "ended";
+  }, [eventWindow, now]);
+
+  const countdown = useMemo(
+    () => (eventWindow && status === "upcoming" ? getCountdownParts(eventWindow.start, now) : null),
+    [eventWindow, status, now]
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40, x: 20 }}
@@ -60,6 +194,42 @@ const EventCard = ({ event }: { event: EventData }) => {
         <p className="font-body text-[15px] text-gray-400 leading-relaxed mb-8 line-clamp-3 italic">
           "{event.description}"
         </p>
+
+        <div className="mb-6 rounded-xl border border-gold/20 bg-gold/5 p-4">
+          {status === "upcoming" && countdown ? (
+            <>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[#800000] mb-3 flex items-center gap-2">
+                <Clock size={14} className="text-gold" />
+                Countdown to Event
+              </p>
+              <div className="grid grid-cols-4 gap-2">
+                {[
+                  { label: "Days", value: countdown.days },
+                  { label: "Hours", value: countdown.hours },
+                  { label: "Minutes", value: countdown.minutes },
+                  { label: "Seconds", value: countdown.seconds },
+                ].map((unit) => (
+                  <div key={unit.label} className="rounded-lg border border-gold/15 bg-white px-2 py-2 text-center">
+                    <p className="font-display text-lg leading-none text-[#800000] font-bold">
+                      {String(unit.value).padStart(2, "0")}
+                    </p>
+                    <p className="text-[10px] mt-1 text-gold font-bold tracking-wider">{unit.label}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : status === "started" ? (
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#800000] flex items-center gap-2">
+              <Clock size={14} className="text-gold" />
+              Event Started
+            </p>
+          ) : (
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#800000] flex items-center gap-2">
+              <Clock size={14} className="text-gold" />
+              Event Ended
+            </p>
+          )}
+        </div>
       </div>
 
       <div className="mt-auto pt-4 border-t border-gold/5 z-10">
@@ -80,8 +250,17 @@ const EventCard = ({ event }: { event: EventData }) => {
 const Events = () => {
   const [activeTab, setActiveTab] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [now, setNow] = useState(Date.now());
 
   const TABS = ["All", "March 2026", "April 2026", "Planned Events"];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setNow(Date.now());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const filteredEvents = useMemo(() => {
     return EVENTS.filter((event) => {
@@ -193,7 +372,7 @@ const Events = () => {
                     delay: index * 0.05 
                   }}
                 >
-                  <EventCard event={event} />
+                  <EventCard event={event} now={now} />
                 </motion.div>
               ))}
             </AnimatePresence>

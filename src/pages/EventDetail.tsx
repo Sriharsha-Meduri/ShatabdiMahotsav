@@ -36,7 +36,7 @@ const EventDetail = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="min-h-screen bg-[#f8f5ee] font-body text-navy selection:bg-gold/30 relative overflow-hidden pt-28 pb-20"
+      className="min-h-screen bg-[#f8f5ee] font-body text-navy selection:bg-gold/30 relative overflow-hidden pt-36 md:pt-40 pb-20"
     >
       <div className="container mx-auto px-4 relative z-10">
         

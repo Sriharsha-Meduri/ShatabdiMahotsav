@@ -14,6 +14,8 @@ const navLinks = [
   { name: "Contact Us", path: "/contact" },
 ];
 
+const LIVE_URL = "https://www.youtube.com/live/VaamtC-moXs?si=g8oufQO4jgkpavst";
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -98,6 +100,45 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <div className="h-11 bg-[#08224a] border-y border-gold/30 overflow-hidden">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          className="flex w-max h-full items-center"
+        >
+          {Array.from({ length: 2 }).map((_, i) => (
+            <div key={i} className="inline-flex items-center h-full gap-4 px-3 pr-16 md:pr-24">
+              <span className="inline-flex items-center gap-2 text-gold font-body font-extrabold tracking-wide whitespace-nowrap">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
+                LIVE NOW
+              </span>
+
+              <a
+                href={LIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold-light hover:text-gold transition-colors font-body font-semibold whitespace-nowrap"
+              >
+                Andhra University Centenary Celebrations - Classical Music Concert
+              </a>
+
+              <a
+                href={LIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full bg-gold px-4 py-1 text-navy font-bold text-sm whitespace-nowrap hover:bg-gold-light transition-colors"
+              >
+                Watch Live
+              </a>
+
+              <span className="text-gold-light/95 font-body font-medium whitespace-nowrap pr-1">
+                Streaming from A.U. Convention Centre
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </motion.nav>
   );
 };

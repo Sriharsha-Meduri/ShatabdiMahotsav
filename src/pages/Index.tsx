@@ -163,7 +163,7 @@ const ballPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
       {/* Countdown */}
       <section className="py-16 bg-cream">
         <div className="container mx-auto px-4">
-          <SectionTitle title="Countdown to Celebrations" subtitle="April 6, 2026 – Mark Your Calendars!" />
+          <SectionTitle title="Countdown to Celebrations" subtitle="Track key milestone events in April 2026" />
           <CountdownTimer />
         </div>
       </section>
