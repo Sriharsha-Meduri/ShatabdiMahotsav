@@ -31,7 +31,7 @@ export const EVENTS: EventData[] = [
     month: "March 2026",
     title: "Classical Music Concert",
     convenor: "Prof. K. Saraswathi Vidyardhi, HoD Music",
-    venue: "Y.V.S. Murthy Auditorium",
+    venue: "AU Convention Centre",
     description: "An evening of serene classical melodies celebrating our cultural heritage and musical legacy.",
     brochureLink: "/downloads/17 Mar - Classical Music Concert - Poster.pdf"
   },
