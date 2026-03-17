@@ -85,6 +85,14 @@ Dean, International Affairs`,
     venue: "Convention Centre",
     description: "A showcase of worldwide cultural diversity through performance and art."
   },
+  {
+    id: 29,
+    date: "30 Mar 2026",
+    month: "March 2026",
+    title: "Panel Discussion with Former Vice-Chancellors of Andhra University",
+    venue: "A.U.Convention Centre",
+    description: "A panel discussion with former Vice-Chancellors of Andhra University as part of the centenary celebrations."
+  },
 
   // APRIL 2026
   {
