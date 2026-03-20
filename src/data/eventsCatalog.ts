@@ -10,6 +10,7 @@ export interface EventData {
   about?: string;
   registrationLink?: string; // Added registration link
   brochureLink?: string; // Added brochure link
+  youtubeLiveLink?: string;
 }
 
 export const EVENTS: EventData[] = [
@@ -23,7 +24,8 @@ export const EVENTS: EventData[] = [
     convenor: "Principal, AU College of Pharmaceutical Sciences",
     description: "Future Pharma Ecosystem: Fostering Synergy Among Academia, Industry, Research, Regulatory and Practice.",
     registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLScibMLGQM753Sb84_Uy-G_edZMidjtYsBoFlWVtMmUrwnnzFg/closedform",
-    brochureLink: "/downloads/Pharma anveshan brochure au.pdf"
+    brochureLink: "/downloads/Pharma anveshan brochure au.pdf",
+    youtubeLiveLink: "https://www.youtube.com/live/vhjKpd0WTSQ?si=5RosFJLdWjKtx8GD"
   },
   {
     id: 13,
@@ -34,7 +36,8 @@ export const EVENTS: EventData[] = [
     venue: "A.U. Convention Centre",
     description: "An evening of serene classical melodies celebrating our cultural heritage and musical legacy.",
     time: "4:00 PM onwards",
-    brochureLink: "/downloads/17 Mar - Classical Music Concert - Poster.pdf"
+    brochureLink: "/downloads/17 Mar - Classical Music Concert - Poster.pdf",
+    youtubeLiveLink: "https://www.youtube.com/live/VaamtC-moXs?si=i9CbG6u8kNC0XEBx"
   },
   {
     id: 14,
@@ -46,7 +49,8 @@ export const EVENTS: EventData[] = [
     time: "9:00 AM to 5:00 PM",
     description: "Focusing on innovation and start-up culture across local university clusters.\nA networking conclave connecting students with startups, industry leaders, and investors.\nExplore internships with 16 startups and gain insights from leaders like Padma Shri Dr. BVR Mohan Reddy.",
     registrationLink: "https://forms.gle/oqwHvqFseJGGD8fU7",
-    brochureLink: "/downloads/IIC_cluster_event.jpeg"
+    brochureLink: "/downloads/IIC_cluster_event.jpeg",
+    youtubeLiveLink: "https://www.youtube.com/live/8J2JOTMTI0w?si=-WcGwqve4-kMsjbX"
   },
   {
     id: 15,
@@ -55,7 +59,8 @@ export const EVENTS: EventData[] = [
     title: "Geotechnical Solutions Workshop",
     convenor: "HoD Civil Engineering",
     venue: "YVS Murthy Auditorium",
-    description: "Advancing geotechnical engineering practices for modern infrastructure challenges."
+    description: "Advancing geotechnical engineering practices for modern infrastructure challenges.",
+    youtubeLiveLink: "https://www.youtube.com/live/-ljMdLfXIXI?si=Gbq1d2bDIg8s50j_"
   },
   {
     id: 16,
@@ -64,7 +69,8 @@ export const EVENTS: EventData[] = [
     title: "International Food Festival",
     convenor: "Prof. S. Paul Douglas",
     venue: "Convention Centre",
-    description: "A culinary journey with dishes from 40+ countries prepared by international students."
+    description: "A culinary journey with dishes from 40+ countries prepared by international students.",
+    youtubeLiveLink: "https://www.youtube.com/live/yzpARRiP7lg?si=fVD1EKeVeVA3_p7S"
   },
   {
     id: 17,
@@ -73,7 +79,8 @@ export const EVENTS: EventData[] = [
     title: "Combined Convocation",
     convenor: "To be announced",
     venue: "Convention Centre",
-    description: "Celebrating the achievements of graduates in a combined 91st & 92nd convocation."
+    description: "Celebrating the achievements of graduates in a combined 91st & 92nd convocation.",
+    youtubeLiveLink: ""
   },
   {
     id: 18,
@@ -83,7 +90,8 @@ export const EVENTS: EventData[] = [
     convenor: `Prof. S. Paul Douglas
 Dean, International Affairs`,
     venue: "Convention Centre",
-    description: "A showcase of worldwide cultural diversity through performance and art."
+  description: "A showcase of worldwide cultural diversity through performance and art.",
+  youtubeLiveLink: ""
   },
   {
     id: 29,
@@ -91,7 +99,8 @@ Dean, International Affairs`,
     month: "March 2026",
     title: "Panel Discussion with Former Vice-Chancellors of Andhra University",
     venue: "A.U.Convention Centre",
-    description: "A panel discussion with former Vice-Chancellors of Andhra University as part of the centenary celebrations."
+    description: "A panel discussion with former Vice-Chancellors of Andhra University as part of the centenary celebrations.",
+    youtubeLiveLink: ""
   },
 
   // APRIL 2026
@@ -104,7 +113,8 @@ Dean, International Affairs`,
     venue: "Engineering College Grounds",
     description: "Spectacular multi-day cultural celebration featuring renowned artists and AU talent.",
     registrationLink: "/registration",
-    brochureLink: "/downloads/b4.pdf"
+    brochureLink: "/downloads/b4.pdf",
+    youtubeLiveLink: ""
   },
   {
     id: 28,
@@ -117,6 +127,7 @@ Dean, International Affairs`,
     time: "Daily sessions during Apr 6-10, 2026",
     registrationLink: "https://forms.gle/GzJMBErd4dT2L6WCA",
     brochureLink: "/downloads/Koha brochure Latest.pdf",
+    youtubeLiveLink: "",
     // about: "Chief Patron: Prof. G.P. Raja Sekhar (Honorable Vice-Chancellor). Workshop Director: Prof. C. Sasikala. Registration Fee: Rs. 200. Payment: Dept. of Library & Information Science, A/C 10428605474, IFSC SBIN0000772 (SBI South Campus). Contact: dhanuvr@gmail.com | +91 9182827373, 9440316454. Resource Persons: Dr. Shankar Reddy Kolle, Dr. C. Mallikarjuna, Dr. Vinod Kumar Mishra, Dr. S. Padma Shree, Dr. O. Seshaiah, and Prasad Vangapandu. Note: Preference will be given to candidates carrying their own laptops."
   },
   {
@@ -126,7 +137,8 @@ Dean, International Affairs`,
     title: "Technology & Innovation Conclave",
     convenor: "Principal, AU College of Engg.",
     venue: "Convention Centre",
-    description: "Exploring the frontier of technology and industry 5.0 with academic experts."
+    description: "Exploring the frontier of technology and industry 5.0 with academic experts.",
+    youtubeLiveLink: ""
   },
   {
     id: 21,
@@ -135,7 +147,8 @@ Dean, International Affairs`,
     title: "Affiliated Colleges Centenary Day Celebrations",
     convenor: "Dean, CDC",
     venue: "TBA",
-    description: "A special day to honor the contribution of our affiliated college network."
+    description: "A special day to honor the contribution of our affiliated college network.",
+    youtubeLiveLink: ""
   },
   {
     id: 22,
@@ -144,7 +157,8 @@ Dean, International Affairs`,
     title: "Arts & Commerce Centenary",
     convenor: "Principal, AU College of A & C",
     venue: "Engg. College Grounds",
-    description: "Celebrating the legacy of the College of Arts & Commerce in our 100th year."
+    description: "Celebrating the legacy of the College of Arts & Commerce in our 100th year.",
+    youtubeLiveLink: ""
   },
   {
     id: 23,
@@ -153,7 +167,8 @@ Dean, International Affairs`,
     title: "Science & Pharmacy Day",
     convenor: "Principal, AU College of S & T",
     venue: "Engg. College Grounds",
-    description: "Honoring the scientific and pharmacological breakthroughs nurtured at AU."
+    description: "Honoring the scientific and pharmacological breakthroughs nurtured at AU.",
+    youtubeLiveLink: ""
   },
   {
     id: 24,
@@ -162,7 +177,8 @@ Dean, International Affairs`,
     title: "Engineering Centenary Day",
     convenor: "Principals, AUCE & AUCEW",
     venue: "Engg. College Grounds",
-    description: "Focusing on the engineering excellence that has defined AU for a century."
+    description: "Focusing on the engineering excellence that has defined AU for a century.",
+    youtubeLiveLink: ""
   },
   {
     id: 25,
@@ -171,7 +187,8 @@ Dean, International Affairs`,
     title: "Law & IASE Celebration",
     convenor: "Rector & Registrar",
     venue: "Engg. College Grounds",
-    description: "Marking 100 years of the College of Law and educational advancements at IASE."
+    description: "Marking 100 years of the College of Law and educational advancements at IASE.",
+    youtubeLiveLink: ""
   },
   {
     id: 26,
@@ -180,7 +197,8 @@ Dean, International Affairs`,
     title: "Foundation Rehearsals",
     convenor: "Organizing Committee",
     venue: "Engg. College Grounds",
-    description: "Grand rehearsals for the historic Centenary Foundation Day ceremony."
+    description: "Grand rehearsals for the historic Centenary Foundation Day ceremony.",
+    youtubeLiveLink: ""
   },
   {
     id: 27,
@@ -189,7 +207,8 @@ Dean, International Affairs`,
     title: "Centenary Foundation Day Celebrations",
     convenor: "TBA",
     venue: "Engg. College Grounds",
-    description: "The main historic celebration marking 100 years since the inception of AU."
+    description: "The main historic celebration marking 100 years since the inception of AU.",
+    youtubeLiveLink: ""
   },
 
   // PLANNED EVENTS & OTHERS

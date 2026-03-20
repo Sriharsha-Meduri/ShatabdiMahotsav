@@ -1,7 +1,7 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
-  Calendar, MapPin, User, Download, Globe, Clock, ArrowLeft, Phone, Mail, Info
+  Calendar, MapPin, User, Download, Globe, Clock, ArrowLeft, Phone, Mail, Info, Youtube
 } from "lucide-react";
 import { EVENTS } from "@/data/eventsCatalog";
 
@@ -148,6 +148,22 @@ const EventDetail = () => {
                 </div>
 
                 <div className="pt-8 border-t border-white/10 space-y-4 sm:space-y-6 relative z-10">
+                  {/* YOUTUBE LIVE BUTTON */}
+                  {event.youtubeLiveLink ? (
+                    <a
+                      href={event.youtubeLiveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 w-full py-5 bg-gold text-[#0A1F44] font-black rounded-2xl hover:bg-white hover:scale-[1.02] transition-all shadow-xl text-xs sm:text-sm uppercase tracking-widest"
+                    >
+                      <Youtube size={20} /> LIVE ON YOUTUBE
+                    </a>
+                  ) : (
+                    <button type="button" className="flex items-center justify-center gap-3 w-full py-5 bg-gold text-[#0A1F44] font-black rounded-2xl transition-all shadow-xl text-xs sm:text-sm uppercase tracking-widest opacity-80 cursor-not-allowed">
+                      <Youtube size={20} /> LIVE COMING SOON
+                    </button>
+                  )}
+
                   {/* REGISTRATION BUTTON LOGIC */}
                   {event.registrationLink ? (
                     event.registrationLink.startsWith('http') ? (
