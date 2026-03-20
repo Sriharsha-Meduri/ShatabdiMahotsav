@@ -14,7 +14,7 @@ const navLinks = [
   { name: "Contact Us", path: "/contact" },
 ];
 
-const LIVE_URL = "https://www.youtube.com/live/VaamtC-moXs?si=g8oufQO4jgkpavst";
+const LIVE_URL = "https://www.youtube.com/live/-ljMdLfXIXI?si=7KTZYaKoa0Lj0ljV";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -120,7 +120,7 @@ const Navbar = () => {
                 rel="noopener noreferrer"
                 className="text-gold-light hover:text-gold transition-colors font-body font-semibold whitespace-nowrap"
               >
-                Andhra University Centenary Celebrations - Classical Music Concert
+                Andhra University Centenary Celebrations - Geotechnical Solutions Workshop
               </a>
 
               <a
@@ -133,7 +133,7 @@ const Navbar = () => {
               </a>
 
               <span className="text-gold-light/95 font-body font-medium whitespace-nowrap pr-1">
-                Streaming from A.U. Convention Centre
+                Streaming from YVS Murthy Auditorium
               </span>
             </div>
           ))}
