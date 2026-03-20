@@ -111,7 +111,7 @@ const Navbar = () => {
             <div key={i} className="inline-flex items-center h-full gap-4 px-3 pr-16 md:pr-24">
               <span className="inline-flex items-center gap-2 text-gold font-body font-extrabold tracking-wide whitespace-nowrap">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-                LIVE NOW
+                LIVE ON 22-03-2026
               </span>
 
               <a
