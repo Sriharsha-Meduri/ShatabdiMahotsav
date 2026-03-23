@@ -140,6 +140,7 @@ const getCountdownParts = (targetTimestamp: number, nowTimestamp: number) => {
 
 const EventCard = ({ event, now }: { event: EventData; now: number }) => {
   const eventWindow = useMemo(() => parseEventDateWindow(event), [event]);
+  const eventPath = event.id === 19 ? "/events/mega-cultural-event" : `/events/${event.id}`;
 
   const status = useMemo(() => {
     if (!eventWindow || now < eventWindow.start) {
@@ -234,7 +235,7 @@ const EventCard = ({ event, now }: { event: EventData; now: number }) => {
 
       <div className="mt-auto pt-4 border-t border-gold/5 z-10">
         <Link
-          to={`/events/${event.id}`}
+          to={eventPath}
           className="text-gold hover:text-navy font-body font-bold text-base transition-all duration-300 flex items-center gap-2 group/btn"
         >
           Learn More
