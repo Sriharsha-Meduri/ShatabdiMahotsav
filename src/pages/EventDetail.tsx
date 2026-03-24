@@ -7,6 +7,7 @@ import {
   Globe,
   Info,
   MapPin,
+  PlayCircle,
   User,
 } from "lucide-react";
 import { EVENTS, EventData } from "@/data/eventsCatalog";
@@ -46,8 +47,10 @@ const resolveEvent = (routeKey?: string): EventData | undefined => {
   return EVENTS.find((item) => toSlug(item.title) === routeKey);
 };
 
-const renderActionButton = (event: EventData, isPrimary: boolean) => {
-  if (!event.registrationLink && isPrimary) {
+type ActionType = "register" | "brochure" | "youtube";
+
+const renderActionButton = (event: EventData, actionType: ActionType) => {
+  if (actionType === "register" && !event.registrationLink) {
     return (
       <button
         type="button"
@@ -58,7 +61,7 @@ const renderActionButton = (event: EventData, isPrimary: boolean) => {
     );
   }
 
-  if (!event.brochureLink && !isPrimary) {
+  if (actionType === "brochure" && !event.brochureLink) {
     return (
       <button
         type="button"
@@ -69,7 +72,18 @@ const renderActionButton = (event: EventData, isPrimary: boolean) => {
     );
   }
 
-  if (isPrimary && event.registrationLink) {
+  if (actionType === "youtube" && !event.youtubeLiveLink) {
+    return (
+      <button
+        type="button"
+        className="w-full rounded-2xl px-6 py-4 text-base font-bold uppercase tracking-[0.14em] border-2 border-gold/50 text-gold/50 cursor-not-allowed"
+      >
+        WATCH LIVE (SOON)
+      </button>
+    );
+  }
+
+  if (actionType === "register" && event.registrationLink) {
     const className =
       "flex items-center justify-center gap-3 w-full rounded-2xl px-6 py-4 text-base font-bold uppercase tracking-[0.14em] bg-[#0A1F44] text-gold hover:bg-[#102c5f] transition-colors";
     return event.registrationLink.startsWith("http") ? (
@@ -83,7 +97,7 @@ const renderActionButton = (event: EventData, isPrimary: boolean) => {
     );
   }
 
-  if (event.brochureLink) {
+  if (actionType === "brochure" && event.brochureLink) {
     return (
       <a
         href={event.brochureLink}
@@ -93,6 +107,19 @@ const renderActionButton = (event: EventData, isPrimary: boolean) => {
         className="flex items-center justify-center gap-3 w-full rounded-2xl px-6 py-4 text-base font-bold uppercase tracking-[0.14em] border-2 border-gold text-gold hover:bg-gold hover:text-[#0A1F44] transition-colors"
       >
         <Download size={18} /> DOWNLOAD BROCHURE
+      </a>
+    );
+  }
+
+  if (actionType === "youtube" && event.youtubeLiveLink) {
+    return (
+      <a
+        href={event.youtubeLiveLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-3 w-full rounded-2xl px-6 py-4 text-base font-bold uppercase tracking-[0.14em] bg-gold text-[#0A1F44] hover:bg-gold-light transition-colors"
+      >
+        <PlayCircle size={18} /> WATCH LIVE
       </a>
     );
   }
@@ -255,8 +282,9 @@ const MegaEventDetail = ({ event }: { event: EventData }) => {
                 </div>
 
                 <div className="pt-7 mt-7 border-t border-white/15 space-y-4">
-                  {renderActionButton(event, true)}
-                  {renderActionButton(event, false)}
+                  {renderActionButton(event, "register")}
+                  {renderActionButton(event, "brochure")}
+                  {renderActionButton(event, "youtube")}
                 </div>
               </div>
             </motion.aside>
@@ -359,8 +387,9 @@ const EventDetail = () => {
             </div>
 
             <div className="pt-7 mt-7 border-t border-white/15 space-y-4">
-              {renderActionButton(event, true)}
-              {renderActionButton(event, false)}
+              {renderActionButton(event, "register")}
+              {renderActionButton(event, "brochure")}
+              {renderActionButton(event, "youtube")}
             </div>
           </aside>
         </div>

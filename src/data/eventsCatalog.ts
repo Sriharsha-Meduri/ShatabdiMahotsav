@@ -79,8 +79,10 @@ export const EVENTS: EventData[] = [
     title: "Combined Convocation",
     convenor: "To be announced",
     venue: "Convention Centre",
+    time: "9:00 AM onwards",
     description: "Celebrating the achievements of graduates in a combined 91st & 92nd convocation.",
-    youtubeLiveLink: ""
+    brochureLink: "/downloads/Convocation.pdf",
+    youtubeLiveLink: "https://www.youtube.com/live/hzrxdk-aRtQ?si=43kRdzAWKsqvyqIi"
   },
   {
     id: 18,

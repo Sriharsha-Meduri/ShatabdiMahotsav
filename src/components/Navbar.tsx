@@ -14,7 +14,7 @@ const navLinks = [
   { name: "Contact Us", path: "/contact" },
 ];
 
-const LIVE_URL = "https://www.youtube.com/live/-ljMdLfXIXI?si=7KTZYaKoa0Lj0ljV";
+const LIVE_URL = "https://www.youtube.com/live/hzrxdk-aRtQ?si=43kRdzAWKsqvyqIi";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -111,7 +111,7 @@ const Navbar = () => {
             <div key={i} className="inline-flex items-center h-full gap-4 px-3 pr-16 md:pr-24">
               <span className="inline-flex items-center gap-2 text-gold font-body font-extrabold tracking-wide whitespace-nowrap">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-                LIVE ON 22-03-2026
+                LIVE ON 25-03-2026
               </span>
 
               <a
@@ -120,7 +120,7 @@ const Navbar = () => {
                 rel="noopener noreferrer"
                 className="text-gold-light hover:text-gold transition-colors font-body font-semibold whitespace-nowrap"
               >
-                Andhra University Centenary Celebrations - Geotechnical Solutions Workshop
+                Andhra University Centenary Celebrations - Combined Convocation
               </a>
 
               <a
@@ -133,7 +133,7 @@ const Navbar = () => {
               </a>
 
               <span className="text-gold-light/95 font-body font-medium whitespace-nowrap pr-1">
-                Streaming from YVS Murthy Auditorium
+                Streaming from A.U.Convention Centre 
               </span>
             </div>
           ))}

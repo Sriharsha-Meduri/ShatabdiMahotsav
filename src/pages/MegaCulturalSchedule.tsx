@@ -210,6 +210,7 @@ const MegaCulturalSchedule = () => {
                             <Download size={14} /> Download
                           </button>
                         )}
+
                       </div>
                     </div>
                   </div>
