@@ -1,8 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { ArrowLeft, CircleDot, Clock3, Download, Globe } from "lucide-react";
-import { EVENTS } from "@/data/eventsCatalog";
 
 const LotusSVG = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 100 100" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -17,9 +16,22 @@ const megaSchedule = [
     day: "Day 1",
     dateLabel: "6th April 2026",
     entries: [
-      { time: "06:00 am", event: "Cycling Rally" },
-      { time: "09:00 am", event: "Inauguration of Stalls" },
-      { time: "10:00 am", event: "Tree Plantation" },
+      {
+        time: "06:00 am",
+        event: "Cycling Rally",
+        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSf6gccxITSfirm1OaSdyfuYqJXtLdqavir1C3cbrN_ZPTBPUA/viewform",
+        brochureLink: "/downloads/Cycling_event.jpeg",
+      },
+      {
+        time: "09:00 am",
+        event: "Inauguration of Stalls",
+        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLScXztmPLzuXqWDksn2oPJ2NTKvW3mJi8txqttCRGB1f7wjrbg/viewform?usp=publish-editor",
+      },
+      {
+        time: "10:00 am",
+        event: "Tree Plantation",
+        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSek0ikGcvZwdgD7snZDbjx3Eh8yr6NX6csuI47QpHrUhih12g/viewform?usp=publish-editor",
+      },
       { time: "04:00 pm", event: "Music by Live Bands" },
       { time: "06:00 pm", event: "Cultural Performances" },
       { time: "09:00 pm", event: "Live Concert" },
@@ -54,8 +66,6 @@ const MegaCulturalSchedule = () => {
   const navigate = useNavigate();
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   const activeDay = megaSchedule[activeDayIndex];
-
-  const event = useMemo(() => EVENTS.find((item) => item.id === 19), []);
 
   return (
     <motion.div
@@ -165,10 +175,10 @@ const MegaCulturalSchedule = () => {
                       </div>
 
                       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {event?.registrationLink ? (
-                          event.registrationLink.startsWith("http") ? (
+                        {entry.registrationLink ? (
+                          entry.registrationLink.startsWith("http") ? (
                             <a
-                              href={event.registrationLink}
+                              href={entry.registrationLink}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0A1F44] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-gold hover:bg-[#102c5f] transition-colors"
@@ -177,7 +187,7 @@ const MegaCulturalSchedule = () => {
                             </a>
                           ) : (
                             <Link
-                              to={event.registrationLink}
+                              to={entry.registrationLink}
                               className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0A1F44] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-gold hover:bg-[#102c5f] transition-colors"
                             >
                               <Globe size={14} /> Register
@@ -192,9 +202,9 @@ const MegaCulturalSchedule = () => {
                           </button>
                         )}
 
-                        {event?.brochureLink ? (
+                        {entry.brochureLink ? (
                           <a
-                            href={event.brochureLink}
+                            href={entry.brochureLink}
                             download
                             target="_blank"
                             rel="noopener noreferrer"
