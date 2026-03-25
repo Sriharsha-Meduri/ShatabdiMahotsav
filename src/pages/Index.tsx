@@ -9,13 +9,26 @@ import campusGate from "@/assets/campus-gate.jpg";
 import campusAerial from "@/assets/campus-aerial.jpg";
 import library from "@/assets/library.webp";
 import engineering from "@/assets/engineering.jpg";
-import convocation from "@/assets/convocation.jpg";
 import schoolOfBusiness from "@/assets/School of Bussiness.jpg";
 import aucew from "@/assets/aucew.jpg";
 import department from "@/assets/deptarment.webp";
 import lawClg from "@/assets/lawclg.jpeg";
 import pharmacy from "@/assets/pharmacy-profile.jpg";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const celebrationPhotos = Object.entries(
+  import.meta.glob("../assets/photos/*", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }) as Record<string, string>
+)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([path, src]) => ({
+    src,
+    label: path.split("/").pop()?.replace(/\.[^.]+$/, "") || "Centenary Photo",
+  }));
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.6 } }),
@@ -60,7 +73,6 @@ const campusImages = [
   { src: campusAerial, label: "Aerial View" },
   { src: library, label: "AU Library" },
   { src: engineering, label: "Engineering College" },
-  { src: convocation, label: "Convocation" },
   { src: schoolOfBusiness, label: "School of Business" },
   { src: aucew, label: "AU College of Engineering" },
   { src: department, label: "Departments" },
@@ -76,14 +88,43 @@ const upcomingEvents = [
 
 const Index = () => {
      const ref = useRef(null);
+  const photoStripRef = useRef<HTMLDivElement | null>(null);
+  const [isPhotoStripPaused, setIsPhotoStripPaused] = useState(false);
 
      const { scrollYProgress } = useScroll({
          target: ref,
          offset: ["start center", "end center"]
       });
 
+  useEffect(() => {
+    const strip = photoStripRef.current;
+    if (!strip || celebrationPhotos.length < 2) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      if (isPhotoStripPaused || strip.scrollWidth <= strip.clientWidth) {
+        return;
+      }
+
+      const nextLeft = strip.scrollLeft + 1;
+      const maxLeft = strip.scrollWidth - strip.clientWidth;
+
+      if (nextLeft >= maxLeft - 1) {
+        strip.scrollTo({ left: 0, behavior: "auto" });
+        return;
+      }
+
+      strip.scrollTo({ left: nextLeft, behavior: "auto" });
+    }, 24);
+
+    return () => window.clearInterval(timer);
+  }, [isPhotoStripPaused]);
+
 const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 const ballPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const stripPhotos = [...celebrationPhotos, ...celebrationPhotos.slice(0, 4)];
+
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
@@ -159,6 +200,40 @@ const ballPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
           <ChevronDown size={32} />
         </motion.div>
       </section>
+
+      {/* Divider Carousel */}
+      {celebrationPhotos.length > 0 && (
+        <section className="bg-cream py-6 md:py-8">
+          <div className="container mx-auto px-4">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-gold/50 to-transparent mb-4 md:mb-5" />
+
+            <div
+              ref={photoStripRef}
+              className="overflow-x-auto pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              aria-label="Auto scrolling centenary photos"
+            >
+              <div className="flex w-max gap-4 md:gap-6 px-1">
+                {stripPhotos.map((photo, idx) => (
+                  <div
+                    key={`${photo.src}-${idx}`}
+                    className="shrink-0 w-[260px] sm:w-[320px] md:w-[380px] rounded-2xl overflow-hidden bg-white shadow-[0_8px_24px_rgba(10,31,68,0.14)]"
+                    onMouseEnter={() => setIsPhotoStripPaused(true)}
+                    onMouseLeave={() => setIsPhotoStripPaused(false)}
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.label}
+                      className="h-44 sm:h-52 md:h-56 w-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+          </div>
+        </section>
+      )}
 
       {/* Countdown */}
       <section className="py-16 bg-cream">

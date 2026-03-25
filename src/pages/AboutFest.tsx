@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 import campusGate from "@/assets/campus-gate.jpg";
 import campusAerial from "@/assets/campus-aerial.jpg";
-import convocation from "@/assets/convocation.jpg";
 import library from "@/assets/library.webp";
 import engineering from "@/assets/engineering.jpg";
+import schoolOfBusiness from "@/assets/School of Bussiness.jpg";
 
 
 const AboutFest = () => {
@@ -51,8 +51,8 @@ const AboutFest = () => {
               />
 
               <motion.img
-                src={convocation}
-                alt="Convocation"
+                src={schoolOfBusiness}
+                alt="School of Business"
                 className="w-full h-40 object-cover rounded-xl"
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
