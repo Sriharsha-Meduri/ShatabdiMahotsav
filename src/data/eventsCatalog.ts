@@ -96,6 +96,16 @@ Dean, International Affairs`,
   youtubeLiveLink: ""
   },
   {
+    id: 35,
+    date: "28-30 Mar 2026",
+    month: "March 2026",
+    title: "National Moot Court Celebrations 2026",
+    convenor: "Principal, Dr. B.R. Ambedkar College of Law",
+    venue: "College of Law",
+    description: "A multi-day moot court celebration featuring legal debates, advocacy rounds, and institutional participation.",
+    youtubeLiveLink: ""
+  },
+  {
     id: 29,
     date: "30 Mar 2026",
     month: "March 2026",
@@ -104,8 +114,38 @@ Dean, International Affairs`,
     description: "A panel discussion with former Vice-Chancellors of Andhra University as part of the centenary celebrations.",
     youtubeLiveLink: ""
   },
+  {
+    id: 36,
+    date: "31 Mar 2026",
+    month: "March 2026",
+    title: "Panel Discussion with Affiliated Colleges of AU",
+    convenor: "Dean, CDC",
+    venue: "Dr. YVS Murthy Auditorium",
+    description: "A discussion focused on collaboration, upskilling, and opportunities for affiliated colleges under the centenary vision.",
+    youtubeLiveLink: ""
+  },
 
   // APRIL 2026
+  {
+    id: 37,
+    date: "2 Apr 2026",
+    month: "April 2026",
+    title: "Prof. T.M. Radhakrishnan & Smt. T.M. Bharathi Endowment Lecture",
+    convenor: "HoD, Dept. of Biochemistry",
+    venue: "Dept. of Biochemistry",
+    description: "Endowment lecture commemorating the contributions of Prof. T.M. Radhakrishnan and Smt. T.M. Bharathi.",
+    youtubeLiveLink: ""
+  },
+  {
+    id: 38,
+    date: "4 Apr 2026",
+    month: "April 2026",
+    title: "SAMANVAYA 2K26",
+    convenor: "HoD, Dept. of Civil Engg.",
+    venue: "Dr. YVS Murthy Auditorium",
+    description: "An academic and student-engagement program organized by the Department of Civil Engineering.",
+    youtubeLiveLink: ""
+  },
   {
     id: 19,
     date: "6-8 Apr 2026",
@@ -140,6 +180,16 @@ Dean, International Affairs`,
     convenor: "Principal, AU College of Engg.",
     venue: "Convention Centre",
     description: "Exploring the frontier of technology and industry 5.0 with academic experts.",
+    youtubeLiveLink: ""
+  },
+  {
+    id: 39,
+    date: "13 Apr 2026",
+    month: "April 2026",
+    title: "Panel Discussion on Centre for Distance and Online Education (CDOE)",
+    convenor: "Director, CDOE",
+    venue: "Dr. YVS Murthy Auditorium",
+    description: "Panel discussion on strengthening quality, access, and innovation in distance and online education.",
     youtubeLiveLink: ""
   },
   {
