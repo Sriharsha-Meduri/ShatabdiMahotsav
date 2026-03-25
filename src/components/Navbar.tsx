@@ -101,7 +101,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      <div className="h-11 bg-[#08224a] border-y border-gold/30 overflow-hidden">
+      {/* <div className="h-11 bg-[#08224a] border-y border-gold/30 overflow-hidden">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
@@ -138,7 +138,7 @@ const Navbar = () => {
             </div>
           ))}
         </motion.div>
-      </div>
+      </div> */}
     </motion.nav>
   );
 };
