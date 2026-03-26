@@ -41,8 +41,12 @@ const megaSchedule = [
     day: "Day 2",
     dateLabel: "7th April 2026",
     entries: [
-      { time: "07:00 am", event: "Rangoli Competition" },
-      { time: "Morning", event: "Inspection and Announcement of Winners by Chief Guest" },
+      {
+        time: "07:00 am",
+        event: "Rangoli Competition",
+        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe7oKqjZ5LPL6qqxsrg6k0N52RDSML7YmF7X4wX1jall1FZcA/viewform?usp=publish-editor",
+        brochureLink: "/downloads/Rangoli_Competition.jpeg",
+      },
       { time: "04:00 pm", event: "Music by Live Bands" },
       { time: "08:30 pm", event: "Dhimsa Dance" },
       { time: "09:30 pm", event: "Classical Cultural Performances" },
@@ -52,8 +56,12 @@ const megaSchedule = [
     day: "Day 3",
     dateLabel: "8th April 2026",
     entries: [
-      { time: "06:00 am", event: "Walkathon" },
-      { time: "09:00 am", event: "Blood Donation Camp" },
+      {
+        time: "06:00 am",
+        event: "Walkathon",
+        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdPLxqHMeyvM1q2_j18U1OYUHpQKXq8RQQYNcag8grsUrerGQ/viewform?usp=publish-editor",
+        brochureLink: "/downloads/Walkathon.jpeg",
+      },
       { time: "06:00 pm", event: "Cultural Performances" },
       { time: "08:15 pm", event: "Magic Show" },
       { time: "08:46 pm", event: "Laser Show" },

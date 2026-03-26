@@ -83,7 +83,7 @@ const campusImages = [
 const upcomingEvents = [
   { day: "Day 1 – April 6", highlights: ["Cycling Rally", "Inauguration of Stalls", "Cultural Performances", "Sid Sriram Live Concert"] },
   { day: "Day 2 – April 7", highlights: ["Rangoli Competition", "Tribute to Ghantasala", "Dhimsa Dance", "Classical Cultural Performances"] },
-  { day: "Day 3 – April 8", highlights: ["Walkathon", "Blood Donation Camp", "Magic Show", "Laser Show & DJ Night"] },
+  { day: "Day 3 – April 8", highlights: ["Walkathon", "Magic Show", "Laser Show & DJ Night"] },
 ];
 
 const Index = () => {
