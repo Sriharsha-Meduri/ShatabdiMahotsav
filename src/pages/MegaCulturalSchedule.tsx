@@ -30,7 +30,8 @@ const megaSchedule = [
       {
         time: "10:00 am",
         event: "Tree Plantation",
-        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSek0ikGcvZwdgD7snZDbjx3Eh8yr6NX6csuI47QpHrUhih12g/viewform?usp=publish-editor",
+        openToAll: true,
+        brochureLink: "/downloads/Tree_Plantation.jpeg",
       },
       { time: "04:00 pm", event: "Music by Live Bands" },
       { time: "06:00 pm", event: "Cultural Performances" },
@@ -183,7 +184,15 @@ const MegaCulturalSchedule = () => {
                       </div>
 
                       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {entry.registrationLink ? (
+                        {"openToAll" in entry && entry.openToAll ? (
+                          <button
+                            type="button"
+                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0A1F44] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-gold/85 cursor-not-allowed"
+                            disabled
+                          >
+                            <Globe size={14} /> Open To All
+                          </button>
+                        ) : entry.registrationLink ? (
                           entry.registrationLink.startsWith("http") ? (
                             <a
                               href={entry.registrationLink}
@@ -204,7 +213,8 @@ const MegaCulturalSchedule = () => {
                         ) : (
                           <button
                             type="button"
-                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0A1F44]/60 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-gold/70 cursor-not-allowed"
+                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0A1F44] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-gold/85 cursor-not-allowed"
+                            disabled
                           >
                             <Globe size={14} /> Register
                           </button>
