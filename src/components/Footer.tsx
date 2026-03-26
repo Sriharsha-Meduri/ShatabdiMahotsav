@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+import { Instagram, Youtube, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -14,10 +15,17 @@ const Footer = () => {
               Shatabdi Mahotsav 1926–2026.
             </p>
             <div className="flex gap-3 mt-6">
-              {[Facebook, Twitter, Instagram, Youtube, Linkedin].map((Icon, i) => (
+              {[
+                { Icon: FaWhatsapp, href: "https://whatsapp.com/channel/0029VbBVxOoLdQeW7wx92r0I" },
+                { Icon: Instagram, href: "https://www.instagram.com/shatabdimahotsav?igsh=MXV4YTF0M2t2bmt5NA==" },
+                { Icon: Youtube, href: "https://www.youtube.com/@andhrauniversityofficial" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/school/andhra-university/" },
+              ].map(({ Icon, href }, i) => (
                 <motion.a
                   key={i}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, y: -2 }}
                   className="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"
                 >
