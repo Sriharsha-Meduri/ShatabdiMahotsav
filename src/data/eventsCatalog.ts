@@ -103,6 +103,7 @@ Dean, International Affairs`,
     convenor: "Principal, Dr. B.R. Ambedkar College of Law",
     venue: "College of Law",
     description: "A multi-day moot court celebration featuring legal debates, advocacy rounds, and institutional participation.",
+    brochureLink: "/downloads/Moot_Court_Competition.pdf",
     youtubeLiveLink: ""
   },
   {
@@ -159,13 +160,28 @@ Dean, International Affairs`,
     youtubeLiveLink: ""
   },
   {
+    id: 42,
+    date: "6-8 Apr 2026",
+    month: "April 2026",
+    title: "Documentary Contest",
+    convenor: "Prof. Ch. At. Raju, Prof. M. M. Yugandhar",
+    venue: "Andhra University Campus",
+    description: "A documentary contest under Mega Cultural Fest 2026 centered on social awareness and meaningful visual storytelling.",
+    about: "Theme: Social Awareness. Caption: Capture What Matters, From Vision to Reality. Submission deadline: 4 Apr 2026. Contact: oushatabdimahotsav@gmail.com.",
+    brochureLink: "/downloads/Documentary_Contest.jpeg",
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSeS1TT1mcrScA6Glo28Q5oisQCAHKDqZZrmdUn0SlWeT2E6uQ/viewform",
+    youtubeLiveLink: ""
+  },
+  {
     id: 40,
     date: "07 Apr 2026",
     month: "April 2026",
     title: "తెలుగు సాహిత్య మీట్-అప్ – కవి సమ్మేళనం, అవధానం",
     convenor: "HoD, Dept. of Telugu",
     venue: "Sri Ramineni Kodandaramiah Hall",
-    description: "Telugu literary event featuring Kavi Sammelanam and Avadhanam.",
+    description: "Telugu literary event featuring Kavi Sammelanam and Avadhanam. Open to all.",
+    about: "Open to all participants.",
+    brochureLink: "/downloads/Telugu_Sahitya_Meet.pdf",
     youtubeLiveLink: ""
   },
   {

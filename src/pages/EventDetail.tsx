@@ -228,6 +228,9 @@ const MegaEventDetail = ({ event }: { event: EventData }) => {
                 <p className="font-body text-[#5d534b] mb-5">
                   Browse day-wise activities with tabs, timings, and quick action buttons on the dedicated schedule page.
                 </p>
+                <p className="font-body text-[#7A1E1E] font-semibold mb-4">
+                  Register here for participation
+                </p>
                 <Link
                   to="/events/mega-cultural-event/schedule"
                   className="inline-flex items-center justify-center rounded-xl bg-[#0A1F44] px-6 py-3 text-sm md:text-base font-bold uppercase tracking-[0.08em] text-gold hover:bg-[#102c5f] transition-colors"
