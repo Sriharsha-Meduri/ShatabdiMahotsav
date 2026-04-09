@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import auLogo from "@/assets/au-logo.png";
@@ -18,7 +18,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -100,6 +99,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
+      {/*
       <div className="h-11 bg-[#08224a] border-y border-gold/30 overflow-hidden">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -124,6 +124,7 @@ const Navbar = () => {
           ))}
         </motion.div>
       </div>
+      */}
     </motion.nav>
   );
 };
