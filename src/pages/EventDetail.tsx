@@ -323,6 +323,9 @@ const EventDetail = () => {
     return <MegaEventDetail event={event} />;
   }
 
+  const aboutText = event.about || event.description;
+  const showQuote = Boolean(event.about && event.about.trim() !== event.description.trim());
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 18 }}
@@ -344,12 +347,14 @@ const EventDetail = () => {
             <LotusSVG className="absolute -right-14 -bottom-14 w-56 h-56 text-gold/8" />
             <span className="text-gold font-display text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Celebration Details</span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-[#800000] leading-tight mb-6">{event.title}</h1>
-            <p className="font-body text-gray-600 text-lg leading-relaxed italic border-l-4 border-gold/20 pl-5 mb-8">"{event.description}"</p>
+            {showQuote && (
+              <p className="font-body text-gray-600 text-lg leading-relaxed italic border-l-4 border-gold/20 pl-5 mb-8">"{event.description}"</p>
+            )}
 
             <h2 className="font-display text-2xl font-bold text-[#7A1E1E] mb-4 flex items-center gap-2">
               <Info size={20} className="text-gold" /> About This Event
             </h2>
-            <p className="text-gray-600 leading-relaxed">{event.about || event.description}</p>
+            <p className="text-gray-600 leading-relaxed">{aboutText}</p>
           </section>
 
           <aside className="xl:col-span-4 xl:sticky xl:top-32 rounded-[2rem] bg-[#0A1F44] text-white p-7 border border-gold/15 shadow-2xl">

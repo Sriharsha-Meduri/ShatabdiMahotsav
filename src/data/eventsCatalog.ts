@@ -229,6 +229,18 @@ Dean, International Affairs`,
     youtubeLiveLink: ""
   },
   {
+    id: 43,
+    date: "17 Apr 2026",
+    month: "April 2026",
+    title: "AU Centenary Celebrations - Human Spell-Out",
+    venue: "AU Golden Jubliee Grounds",
+    time: "8:30 AM",
+    description: "Celebrate 100 years of Andhra University with the AU Centenary Human Spell-Out-a spectacular event where students and faculty come together to create a powerful visual tribute to the university's legacy, unity, and future.",
+    registrationLink: "https://qr-codes.io/BFE4FB",
+    brochureLink: "/downloads/Human_spell_out.png",
+    youtubeLiveLink: ""
+  },
+  {
     id: 21,
     date: "18 Apr (Sat)",
     month: "April 2026",
