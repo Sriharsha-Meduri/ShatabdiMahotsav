@@ -17,7 +17,7 @@ import pharmacy from "@/assets/pharmacy-profile.jpg";
 import { useEffect, useRef, useState } from "react";
 
 const celebrationPhotos = Object.entries(
-  import.meta.glob("../assets/photos/*", {
+  import.meta.glob("../assets/photos/*.webp", {
     eager: true,
     query: "?url",
     import: "default",
